@@ -307,6 +307,11 @@ Examples:
         global DEVICE
         DEVICE = torch.device(args.device)
 
+    if args.top_k < 1 or args.top_k > NUM_FOOD_CLASSES:
+        sys.exit(f"[ERROR] --top_k must be between 1 and {NUM_FOOD_CLASSES}.")
+
+    print(f"[INFO] Using device: {DEVICE}")
+
     if not args.image and not args.text:
         parser.print_help()
         sys.exit("\n[ERROR] Provide at least --image or --text.")
