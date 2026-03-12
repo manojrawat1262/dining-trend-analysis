@@ -279,8 +279,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="MR603 Dining Analytics — Inference",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
+        epilog="""Examples:
   # Classify a food image (top-5 predictions)
   python inference.py --image photo.jpg
 
@@ -294,6 +293,7 @@ Examples:
   python inference.py --image photo.jpg --top_k 10
         """,
     )
+    parser.add_argument("--version", action="version", version="MR603 Dining Analytics 1.0.0")
     parser.add_argument("--image", type=str, help="Path to a food image (jpg/png)")
     parser.add_argument("--text", type=str, help="Review or tweet text")
     parser.add_argument("--top_k", type=int, default=5, help="Top-K for image classification (default: 5)")
